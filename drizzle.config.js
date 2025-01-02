@@ -1,9 +1,9 @@
 import { defineConfig } from "drizzle-kit";
-
+import "dotenv/config";
 export default defineConfig({
   schema: "./configs/schema.js",
   dialect: "postgresql",
   dbCredentials: {
-    url: "postgresql://neondb_owner:v49uVnZXFCMx@ep-noisy-butterfly-a5dhuyy5.us-east-2.aws.neon.tech/neondb?sslmode=require",
+    url: process.env.NEXT_PUBLIC_DATABASE_CONNECTION_STRING,
   },
 });
