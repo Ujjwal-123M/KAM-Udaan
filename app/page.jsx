@@ -1,9 +1,9 @@
-'use client'
-import { UserButton, useUser } from '@clerk/nextjs';
-import axios from 'axios';
-import Link from 'next/link';
-import { useRouter } from 'next/navigation';
-import React, { useEffect, useState } from 'react';
+"use client";
+import { UserButton, useUser } from "@clerk/nextjs";
+import axios from "axios";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
+import React, { useEffect, useState } from "react";
 
 function Page() {
   const { isSignedIn, user } = useUser();
@@ -20,7 +20,7 @@ function Page() {
 
       try {
         // This will either create a new user or return existing user data
-        const response = await axios.post('/api/create-user', {
+        const response = await axios.post("/api/create-user", {
           user: {
             id: user.id,
             email: user.emailAddresses[0]?.emailAddress,
@@ -32,7 +32,7 @@ function Page() {
           setUserRole(response.data.user.role);
         }
       } catch (error) {
-        console.error('Error fetching user role:', error);
+        console.error("Error fetching user role:", error);
       } finally {
         setIsLoading(false);
       }
@@ -42,11 +42,11 @@ function Page() {
   }, [user]);
 
   const handleButtonClick = () => {
-    if (userRole !== 'admin') {
+    if (userRole !== "user") {
       alert("You don't have admin privileges!");
       return;
     }
-    router.push('/dashboard/lead-management');
+    router.push("/dashboard/lead-management");
   };
 
   if (isLoading) {
@@ -70,7 +70,7 @@ function Page() {
       {isSignedIn ? (
         <div className="space-y-4">
           <div className="p-4 rounded-lg text-black bg-gray-100">
-            <p className="mb-2">Current Role: {userRole || 'Loading...'}</p>
+            <p className="mb-2">Current Role: {userRole || "Loading..."}</p>
             <button
               onClick={handleButtonClick}
               className="bg-blue-600 hover:bg-blue-700 text-white font-medium py-2 px-4 rounded transition-colors"
@@ -79,8 +79,8 @@ function Page() {
               Access Admin Dashboard
             </button>
           </div>
-          
-          {userRole !== 'admin' && (
+
+          {userRole !== "user" && (
             <div className="p-4 rounded-lg bg-yellow-100 text-yellow-800">
               <p>Notice: You need admin privileges to access the dashboard.</p>
             </div>

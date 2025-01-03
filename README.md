@@ -1,40 +1,109 @@
-<<<<<<< HEAD
-# KAM-Udaan
-=======
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+### ReadMe
 
-## Getting Started
+## Project Overview
 
-First, run the development server:
+The **Key Account Management System** streamlines the workflow of Key Account Managers (KAMs). It enables efficient lead tracking, contact management, interaction recording, call planning, and performance monitoring for large restaurant accounts. Built with modern technologies, this system ensures scalability, reliability, and ease of use.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+---
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## System Requirements
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+Ensure you have the following installed to run this project:
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Node.js** (v16.0 or later)
+- **npm** (v7.0 or later)
+- **PostgreSQL** (v13 or later)
+- A **Clerk** account for authentication setup
+- **Vercel CLI** (optional, for deployment)
 
-## Learn More
+---
 
-To learn more about Next.js, take a look at the following resources:
+## Installation Instructions
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/Ujjwal-123M/KAM-Udaan.git
+   cd KAM-Udaan
+   ```
+2. Install project dependencies:
+   ```bash
+   npm install
+   npm install drizzle-kit
+   ```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+---
 
-## Deploy on Vercel
+## Running Instructions
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+1. Start the development server:
+   ```bash
+   npm run dev
+   ```
+2. Push database schema changes (if applicable):
+   ```bash
+   npx drizzle-kit push
+   ```
+3. Open the Drizzle Studio for database management:
+   ```bash
+   npx drizzle-kit studio
+   ```
+4. Access the application in your browser at:
+   - **Local**: `http://localhost:3000`
+   - **Production**: `https://kam-udaan-ujjwal-mishras-projects-c6c75be8.vercel.app/`
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
->>>>>>> e630a86 (Initial commit)
+---
+
+## Test Execution Guide
+
+Test the following functionalities:
+
+- Add new leads and verify their information is saved correctly.
+- Add multiple Points of Contact (POCs) for a single lead and ensure they are displayed accurately.
+- Record interactions, including calls and orders, and view them under recent interactions.
+- Verify that leads requiring calls today are displayed under the "Call Planning" section.
+- Monitor account performance and check for high-performing or underperforming accounts.
+
+---
+
+## API Documentation
+
+### Authentication
+
+- **Endpoint**: `/api/auth`  
+  Handles user authentication using Clerk.
+
+### Lead Management
+
+- **GET /api/leads**: Retrieve all leads.
+- **POST /api/leads**: Add a new lead.
+
+### Contact Management
+
+- **GET /api/contacts/:leadId**: Retrieve all POCs for a specific lead.
+- **POST /api/contacts**: Add a new POC.
+
+### Interaction Tracking
+
+- **GET /api/interactions/:leadId**: Retrieve interactions for a specific lead.
+- **POST /api/interactions**: Record a new interaction.
+
+### Call Planning
+
+- **GET /api/call-planning**: Get leads requiring calls today.
+
+### Performance Tracking
+
+- **GET /api/performance**: Fetch performance data for all accounts.
+
+---
+
+## Sample Usage Examples
+
+1. **Adding a Lead**:  
+   Navigate to the "Leads" section and fill out the required details to add a new restaurant lead.
+2. **Adding Multiple Contacts**:  
+   Go to a specific lead's profile and add multiple POCs, specifying their roles and contact information.
+3. **Tracking Interactions**:  
+   Log a call or order under a lead's interaction history and view it in the recent interactions section.
+4. **Video Demonstration**:  
+   A recorded video is available, showcasing how to use the application effectively.
