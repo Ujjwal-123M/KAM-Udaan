@@ -49,7 +49,7 @@ Ensure you have the following installed to run this project:
    ```
 4. Access the application in your browser at:
    - **Local**: `http://localhost:3000`
-   - **Production**: `https://kam-udaan-ujjwal-mishras-projects-c6c75be8.vercel.app/`
+   - **Production**: `https://kam-udaan-ujjwal-project-ar3v0763k.vercel.app/`
 
 ---
 
